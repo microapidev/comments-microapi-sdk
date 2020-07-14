@@ -22,4 +22,4 @@ const deleteSingleReply = async (params, commentId, replyId) => {
   }
 };
 
-export default deleteSingleReply;
+module.exports =deleteSingleReply;

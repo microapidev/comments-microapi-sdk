@@ -23,4 +23,4 @@ const createComment = async (params, content) => {
   }
 };
 
-export default createComment;
+module.exports = createComment;

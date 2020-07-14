@@ -1,6 +1,6 @@
 const rp = require('request-promise');
 
-const flagComment = async (params, commentId, replyId) => {
+const flagReply = async (params, commentId, replyId) => {
   var options = {
     uri: `https://comment.microapi.dev/v1/comments/${commentId}/replies/${replyId}/flag`,
     headers: {
@@ -22,4 +22,4 @@ const flagComment = async (params, commentId, replyId) => {
   }
 };
 
-export default flagReply;
+module.exports =flagReply;

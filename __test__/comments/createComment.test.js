@@ -1,10 +1,25 @@
-const commentSDK = require('../../src/commentSDK');
+const CommentSDK = require('../../src/commentSDK');
 
-test('Create a Comment', async () => {
-  const appToken =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBsaWNhdGlvbklkIjoiNWYwOGIxYTU0N2ZjNDgwMDE2OTQyNTdmIiwiYWRtaW5JZCI6IjVmMDhhZmYyNDdmYzQ4MDAxNjk0MjU3ZSIsImlhdCI6MTU5NDQwNjUwNCwiZXhwIjoxNTk2OTk4NTA0fQ.d1y-_g1doceufxd8PNJ74vyZrlAwHfoBkKivryEYuuE';
-  const newSdk = new commentSDK(appToken, 'me@me.com', '', '');
-  newSdk.init();
-  const response = await newSdk.getAllComments();
-  console.log(response);
+describe('Create new comment', () => {
+  test('should create a Comment', async () => {
+    const newSdk = new CommentSDK(global.appToken, 'me@me.com', '', '');
+    newSdk.init();
+    expect(newSdk.params.appToken).toEqual(global.appToken);
+    const commentContent = 'This is a comment';
+    const newComment = await newSdk.createComment(commentContent);
+    console.log(newComment);
+    expect(newComment.data.content).toEqual(commentContent);
+    expect(newComment.data.ownerId).toEqual(newSdk.params.userId);
+    expect(newComment.status).toEqual('success');
+  });
+
+  test('should return error for invalid token', async () => {
+    const appToken = 'wrongToken',
+      commentContent = 'This is a comment';
+    const newSdk = new CommentSDK(appToken, 'me@me.com', '', '');
+    await newSdk.init();
+    expect(Error).toBeTruthy();
+    const newComment = await newSdk.createComment(commentContent);
+    console.log(newComment);
+  });
 });

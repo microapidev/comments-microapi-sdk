@@ -18,5 +18,4 @@ const getAllReplies = async (params) => {
     return error.message;
   }
 };
-
-export default getAllReplies;
+module.exports = getAllReplies;

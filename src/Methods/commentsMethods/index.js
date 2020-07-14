@@ -1,14 +1,14 @@
-import createComment from './createComment';
-import getAllComments from './getAllComments';
-import getSingleComment from './getSingleComment';
-import updateCommentContent from './updateCommentContent';
-import deleteSingleComment from './deleteSingleComment';
-import flagComment from './flagComment';
-import getCommentVotes from './getCommentVotes';
-import upvoteSingleComment from './upvoteSingleComment';
-import downvoteSingleComment from './downvoteSingleCommnent';
+const createComment = require('./createComment');
+const getAllComments = require('./getAllComments');
+const getSingleComment = require('./getSingleComment');
+const updateCommentContent = require('./updateCommentContent');
+const deleteSingleComment = require('./deleteSingleComment');
+const flagComment = require('./flagComment');
+const getCommentVotes = require('./getCommentVotes');
+const upvoteSingleComment = require('./upvoteSingleComment');
+const downvoteSingleComment = require('./downvoteSingleCommnent');
 
-export default {
+module.exports = {
   createComment,
   getAllComments,
   getSingleComment,

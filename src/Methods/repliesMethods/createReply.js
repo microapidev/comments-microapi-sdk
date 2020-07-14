@@ -23,4 +23,4 @@ const createReply = async (params, commentId, content) => {
   }
 };
 
-export default createReply;
+module.exports = createReply;

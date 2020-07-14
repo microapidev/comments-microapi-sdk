@@ -1,11 +1,7 @@
-import comments from '../Methods/commentsMethods';
-import replies from '../Methods/repliesMethods';
+const comments = require('../Methods/commentsMethods');
+const replies = require('../Methods/repliesMethods');
+const verifyToken = require('../utils/validation');
 
-// const _PROPS ={
-//     appToken: null,
-//     serviceUrl: "https://comment.microapi.dev/v1",
-
-// }
 class CommentSDK {
   constructor(applicationToken, userId, pageId = '', origin = '') {
     this.applicationToken = applicationToken;
@@ -20,8 +16,13 @@ class CommentSDK {
    * initParams - object containing paramaters for initializing the service
    */
   init() {
-    // application token from the init params
-    this.params.appToken = this.applicationToken;
+    console.log(verifyToken(this.applicationToken));
+    if (verifyToken(this.applicationToken) === true) {
+      this.params.appToken = this.applicationToken;
+    } else {
+      return 'Invalid Token Provided';
+    }
+
     this.params.ownerId = this.userId;
     this.params.refId = this.pageId;
     this.params.origin = this.origin;

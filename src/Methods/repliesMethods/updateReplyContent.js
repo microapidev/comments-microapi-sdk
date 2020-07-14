@@ -23,4 +23,4 @@ const updateReplyContent = async (params, commentId, replyId, content) => {
   }
 };
 
-export default updateReplyContent;
+module.exports = updateReplyContent;

@@ -21,5 +21,4 @@ const upvoteSingleComment = async (params, commentId) => {
     return error.message;
   }
 };
-
-export default upvoteSingleComment;
+module.exports = upvoteSingleComment;

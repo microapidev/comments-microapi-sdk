@@ -19,4 +19,4 @@ const getAllComments = async (params) => {
   }
 };
 
-export default getAllComments;
+module.exports = getAllComments;

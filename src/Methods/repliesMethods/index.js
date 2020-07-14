@@ -1,14 +1,14 @@
-import createReply from './createReply';
-import getAllReplies from './getAllReplies';
-import getSingleReply from './getSingleReply';
-import updateReplyContent from './updateReplyContent';
-import deleteSingleReply from './deleteSingleReply';
-import flagReply from './flagReply';
-import getReplyVotes from './getReplyVotes';
-import upvoteSingleReply from './upvoteSingleReply';
-import downVoteSingleReply from './downVoteSingleReply';
+const createReply = require('./createReply');
+const getAllReplies = require('./getAllReplies');
+const getSingleReply = require('./getSingleReply');
+const updateReplyContent = require('./updateReplyContent');
+const deleteSingleReply = require('./deleteSingleReply');
+const flagReply = require('./flagReply');
+const getReplyVotes = require('./getReplyVotes');
+const upvoteSingleReply = require('./upvoteSingleReply');
+const downVoteSingleReply = require('./downVoteSingleReply');
 
-export default {
+module.exports = {
   createReply,
   getAllReplies,
   getSingleReply,

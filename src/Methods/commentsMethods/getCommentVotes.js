@@ -19,4 +19,4 @@ const getCommentVotes = async (params, commentId) => {
   }
 };
 
-export default getCommentVotes;
+module.exports = getCommentVotes;

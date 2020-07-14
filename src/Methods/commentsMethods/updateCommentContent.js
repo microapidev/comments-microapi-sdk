@@ -23,4 +23,4 @@ const updateCommentContent = async (params, commentId,content) => {
   }
 };
 
-export default updateCommentContent;
+module.exports =updateCommentContent;

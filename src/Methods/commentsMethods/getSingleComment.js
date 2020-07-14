@@ -19,4 +19,4 @@ const getSingleComment = async (params, commentId) => {
   }
 };
 
-export default getSingleComment;
+module.exports = getSingleComment;

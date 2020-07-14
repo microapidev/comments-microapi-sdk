@@ -22,4 +22,4 @@ const upvoteSingleReply = async (params, commentId, replyId) => {
   }
 };
 
-export default upvoteSingleReply;
+module.exports = upvoteSingleReply;

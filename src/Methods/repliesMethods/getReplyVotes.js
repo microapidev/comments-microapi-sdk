@@ -18,5 +18,4 @@ const getReplyVotes = async (params, commentId, replyId) => {
     return error.message;
   }
 };
-
-export default getReplyVotes;
+module.exports =getReplyVotes;

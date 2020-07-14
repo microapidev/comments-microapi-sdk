@@ -4,7 +4,13 @@
   "description": "This is an SDK for the Comments Microapi at Microapi.dev Organization ",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "cross-env NODE_ENV=test jest --verbose",
+    "test:debug": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose",
+    "test:watch": "cross-env NODE_ENV=test jest --watch --verbose",
+    "test:cover": "cross-env NODE_ENV=test jest --coverage",
+    "test:ci": "cross-env NODE_ENV=test jest --coverage --verbose && cat ./coverage/lcov.info | coveralls",
+    "lint": "eslint \"./**/*.js\"",
+    "lint:fix": "eslint --fix \"./**/*.js\""
   },
   "keywords": [
     "sdk",
@@ -25,6 +31,16 @@
     "request-promise": "^4.2.5"
   },
   "devDependencies": {
-    "jest": "^26.1.0"
+    "@babel/node": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@shelf/jest-mongodb": "^1.2.1",
+    "babel-jest": "^26.1.0",
+    "coveralls": "^3.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.4.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
   }
 }

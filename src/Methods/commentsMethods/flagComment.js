@@ -21,5 +21,4 @@ const flagComment = async (params, commentId) => {
     return error.message;
   }
 };
-
-export default flagComment;
+module.exports = flagComment;

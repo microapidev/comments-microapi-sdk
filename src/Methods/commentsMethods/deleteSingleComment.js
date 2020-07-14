@@ -22,4 +22,4 @@ const deleteSingleComment = async (params, commentId) => {
   }
 };
 
-export default deleteSingleComment;
+module.exports = deleteSingleComment;

@@ -19,4 +19,4 @@ const getSingleReply = async (params, commentId, replyId) => {
   }
 };
 
-export default getSingleReply;
+module.exports =getSingleReply;
