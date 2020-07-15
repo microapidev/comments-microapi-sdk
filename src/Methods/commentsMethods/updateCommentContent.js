@@ -1,11 +1,12 @@
 const rp = require('request-promise');
+require('dotenv').config();
 
 const updateCommentContent = async (token, commentId, updateObject) => {
   if (!updateObject.userId && !updateObject.content) {
     return 'UserId and Comment Update Content must no be empty';
   }
   var options = {
-    uri: `https://comment.microapi.dev/v1/comments/${commentId}`,
+    uri: `${process.env.BaseUrl}/v1/comments/${commentId}`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,

@@ -1,8 +1,9 @@
 const rp = require('request-promise');
+require('dotenv').config();
 
 const getCommentVotes = async (token, commentId) => {
   var options = {
-    uri: `https://comment.microapi.dev/v1/comments/${commentId}/votes`,
+    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/votes`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,

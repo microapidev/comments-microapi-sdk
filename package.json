@@ -2,7 +2,7 @@
   "name": "comments-microapi-sdk",
   "version": "1.0.0",
   "description": "This is an SDK for the Comments Microapi at Microapi.dev Organization ",
-  "main": "index.js",
+  "main": "src/commentSDK/index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --verbose",
     "test:debug": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose",
@@ -26,7 +26,17 @@
   ],
   "author": "Oscar Ekeyekwu (oscarekeyekwu@gmail.com)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microapidev/comments-microapi-sdk.git"
+  },
+  "homepage": "https://github.com/microapidev/comments-microapi-sdk",
+  "bugs": {
+    "url": "https://github.com/microapidev/comments-microapi-sdk/issues"   
+  },
+  "private": false,
   "dependencies": {
+    "dotenv": "^8.2.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
   },
@@ -40,6 +50,7 @@
     "eslint": "^7.4.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.1.0",
+    "mongoose": "^5.9.24",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2"
   }

@@ -1,8 +1,9 @@
 const rp = require('request-promise');
+require('dotenv').config();
 
 const getSingleReply = async (token, commentId, replyId) => {
   var options = {
-    uri: `https://comment.microapi.dev/v1/comments/${commentId}/replies/${replyId}`,
+    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/replies/${replyId}`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,
@@ -19,4 +20,4 @@ const getSingleReply = async (token, commentId, replyId) => {
   }
 };
 
-module.exports =getSingleReply;
+module.exports = getSingleReply;
