@@ -27,6 +27,7 @@
   "author": "Oscar Ekeyekwu (oscarekeyekwu@gmail.com)",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
   },
@@ -40,6 +41,7 @@
     "eslint": "^7.4.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.1.0",
+    "mongoose": "^5.9.24",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2"
   }

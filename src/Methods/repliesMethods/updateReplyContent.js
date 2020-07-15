@@ -1,16 +1,27 @@
 const rp = require('request-promise');
+require('dotenv').config();
 
-const updateReplyContent = async (params, commentId, replyId, content) => {
+const updateReplyContent = async (
+  token,
+  commentId,
+  replyId,
+  updateObject
+) => {
+
+  if (!updateObject.userId && !updateObject.content) {
+    return 'UserId and Comment Update Content must no be empty';
+  }
+
   var options = {
-    uri: `https://comment.microapi.dev/v1/comments/${commentId}/replies/${replyId}`,
+    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/replies/${replyId}`,
     headers: {
       'User-Agent': 'Request-Promise',
-      Authorization: `Bearer ${params.appToken}`,
+      Authorization: `Bearer ${token}`,
     },
     method: 'PATCH',
     body: {
-      ownerId: params.ownerId,
-      content: content,
+      ownerId: updateObject.userId,
+      content: updateObject.content,
     },
     json: true, // Automatically parses the JSON string in the response
   };

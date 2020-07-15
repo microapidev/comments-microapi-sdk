@@ -1,11 +1,12 @@
 const rp = require('request-promise');
+require('dotenv').config();
 
 const createComment = async (token, commentObject) => {
   if (!commentObject.userId && !commentObject.content) {
     return 'UserId and Comment Content Required';
   }
   var options = {
-    uri: 'https://comment.microapi.dev/v1/comments',
+    uri: `${process.env.BaseUrl}/v1/comments`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,

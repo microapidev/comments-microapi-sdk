@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require("mongoose");
 
 const verifyToken = (token) => {
   /* eslint-disable */
@@ -12,9 +12,9 @@ const verifyToken = (token) => {
   }
 };
 
-const verifyID = (...mongoId) => {
+const verifyID = async (...mongoId) => {
   let verification;
-  mongoId.forEach(id, () => {
+  await mongoId.forEach(id, () => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       verification = false;
     } else {

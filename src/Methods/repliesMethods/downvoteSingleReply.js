@@ -1,11 +1,12 @@
 const rp = require('request-promise');
+require('dotenv').config();
 
 const downvoteSingleReply = async (token, commentId, replyId, userId) => {
   if (!userId) {
     return `User ID must not be empty!`;
   }
   var options = {
-    uri: `https://comment.microapi.dev/v1/comments/${commentId}/replies/${replyId}/votes/downvote`,
+    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/replies/${replyId}/votes/downvote`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,
