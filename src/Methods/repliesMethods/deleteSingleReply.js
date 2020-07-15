@@ -1,12 +1,12 @@
 const rp = require('request-promise');
-require('dotenv').config();
 
 const deleteSingleReply = async (token, commentId, replyId, userId) => {
+  const urlBase =  `https://comments-microservice.herokuapp.com`
   if (!userId) {
     return `User ID must not be empty!`;
   }
   var options = {
-    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/replies/${replyId}`,
+    uri: `https://comments-microservice.herokuapp.com/v1/comments/${commentId}/replies/${replyId}`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,

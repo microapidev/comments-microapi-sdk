@@ -1,9 +1,8 @@
 const rp = require('request-promise');
-require('dotenv').config();
 
 const getSingleReply = async (token, commentId, replyId) => {
   var options = {
-    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/replies/${replyId}`,
+    uri: `https://comments-microservice.herokuapp.com/v1/comments/${commentId}/replies/${replyId}`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,
@@ -20,4 +19,4 @@ const getSingleReply = async (token, commentId, replyId) => {
   }
 };
 
-module.exports = getSingleReply;
+module.exports =getSingleReply;

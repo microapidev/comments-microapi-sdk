@@ -1,8 +1,8 @@
 const rp = require('request-promise');
-require('dotenv').config();
+
 const getAllComments = async (token, pageQuery) => {
   var options = {
-    uri: `${process.env.BaseUrl}/v1/comments`,
+    uri: `https://comments-microservice.herokuapp.com/v1/comments`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,
