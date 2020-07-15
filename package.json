@@ -32,11 +32,12 @@
   },
   "homepage": "https://github.com/microapidev/comments-microapi-sdk",
   "bugs": {
-    "url": "https://github.com/microapidev/comments-microapi-sdk/issues"   
+    "url": "https://github.com/microapidev/comments-microapi-sdk/issues"
   },
   "private": false,
   "dependencies": {
     "dotenv": "^8.2.0",
+    "path": "^0.12.7",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
   },

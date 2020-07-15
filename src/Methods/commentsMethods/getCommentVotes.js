@@ -1,9 +1,8 @@
 const rp = require('request-promise');
-require('dotenv').config();
 
 const getCommentVotes = async (token, commentId) => {
   var options = {
-    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/votes`,
+    uri: `https://comments-microservice.herokuapp.com/v1/comments/${commentId}/votes`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,

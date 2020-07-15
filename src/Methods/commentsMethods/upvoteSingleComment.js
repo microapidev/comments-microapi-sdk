@@ -1,12 +1,11 @@
 const rp = require('request-promise');
-require('dotenv').config();
 
 const upvoteSingleComment = async (token, commentId, userId) => {
   if (!userId) {
     return `User ID must not be empty!`;
   }
   var options = {
-    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/votes/upvote`,
+    uri: `https://comments-microservice.herokuapp.com/v1/comments/${commentId}/votes/upvote`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,
