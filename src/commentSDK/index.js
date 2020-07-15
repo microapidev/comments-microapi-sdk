@@ -1,14 +1,14 @@
 const path = require('path');
 const commentMethodsPath = path.join(
-  process.cwd(),
-  '/src/methods/commentsMethods/index.js'
+  __dirname,
+  '/methods/commentsMethods'
 );
 const replyMethodsPath = path.join(
-  process.cwd(),
-  '/src/methods/repliesMethods/index.js'
+  __dirname,
+  '/methods/repliesMethods'
 );
 
-const validationFilePath = path.join(process.cwd(), '/src/utils/validation.js');
+const validationFilePath = path.join(__dirname, '/utils/validation.js');
 const comments = require(commentMethodsPath);
 const replies = require(replyMethodsPath);
 const { verifyToken, verifyID } = require(validationFilePath);
