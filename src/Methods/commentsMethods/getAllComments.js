@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const rp = require('./node_modules/request-promise');
 
 const getAllComments = async (params) => {
   var options = {
@@ -7,6 +7,7 @@ const getAllComments = async (params) => {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${params.appToken}`,
     },
+    query: pageQuery,
     method: 'GET',
     json: true, // Automatically parses the JSON string in the response
   };

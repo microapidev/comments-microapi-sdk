@@ -1,15 +1,18 @@
-const rp = require('request-promise');
+const rp = require('./node_modules/request-promise');
 
-const flagReply = async (params, commentId, replyId) => {
+const flagReply = async (token, commentId, replyId, userId) => {
+  if (!userId) {
+    return `User ID must not be empty!`;
+  }
   var options = {
     uri: `https://comment.microapi.dev/v1/comments/${commentId}/replies/${replyId}/flag`,
     headers: {
       'User-Agent': 'Request-Promise',
-      Authorization: `Bearer ${params.appToken}`,
+      Authorization: `Bearer ${token}`,
     },
     method: 'PATCH',
     body: {
-      ownerId: params.ownerId,
+      ownerId: userId,
     },
     json: true, // Automatically parses the JSON string in the response
   };
@@ -22,4 +25,4 @@ const flagReply = async (params, commentId, replyId) => {
   }
 };
 
-module.exports =flagReply;
+module.exports = flagReply;

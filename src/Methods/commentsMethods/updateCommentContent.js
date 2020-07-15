@@ -1,16 +1,19 @@
-const rp = require('request-promise');
+const rp = require('./node_modules/request-promise');
 
-const updateCommentContent = async (params, commentId,content) => {
+const updateCommentContent = async (token, commentId, updateObject) => {
+  if (!updateObject.userId && !updateObject.content) {
+    return 'UserId and Comment Update Content must no be empty';
+  }
   var options = {
     uri: `https://comment.microapi.dev/v1/comments/${commentId}`,
     headers: {
       'User-Agent': 'Request-Promise',
-      Authorization: `Bearer ${params.appToken}`,
+      Authorization: `Bearer ${token}`,
     },
     method: 'PATCH',
     body: {
-      ownerId: params.ownerId,
-      content: content,
+      ownerId: updateObject.userId,
+      content: updateObject.content,
     },
     json: true, // Automatically parses the JSON string in the response
   };
@@ -23,4 +26,4 @@ const updateCommentContent = async (params, commentId,content) => {
   }
 };
 
-module.exports =updateCommentContent;
+module.exports = updateCommentContent;

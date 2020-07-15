@@ -1,15 +1,18 @@
-const rp = require('request-promise');
+const rp = require('./node_modules/request-promise');
 
-const deleteSingleReply = async (params, commentId, replyId) => {
+const deleteSingleReply = async (token, commentId, replyId, userId) => {
+  if (!userId) {
+    return `User ID must not be empty!`;
+  }
   var options = {
     uri: `https://comment.microapi.dev/v1/comments/${commentId}/replies/${replyId}`,
     headers: {
       'User-Agent': 'Request-Promise',
-      Authorization: `Bearer ${params.appToken}`,
+      Authorization: `Bearer ${token}`,
     },
     method: 'DELETE',
     body: {
-      ownerId: params.ownerId,
+      ownerId: userId,
     },
     json: true, // Automatically parses the JSON string in the response
   };
@@ -22,4 +25,4 @@ const deleteSingleReply = async (params, commentId, replyId) => {
   }
 };
 
-module.exports =deleteSingleReply;
+module.exports = deleteSingleReply;
