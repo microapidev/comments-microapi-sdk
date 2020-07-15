@@ -1,11 +1,11 @@
 const path = require('path');
 const commentMethodsPath = path.join(
   __dirname,
-  '/methods/commentsMethods'
+  '/methods/commentsMethods/index.js'
 );
 const replyMethodsPath = path.join(
   __dirname,
-  '/methods/repliesMethods'
+  '/methods/repliesMethods/index.js'
 );
 
 const validationFilePath = path.join(__dirname, '/utils/validation.js');
@@ -18,7 +18,7 @@ class CommentSDK {
     this.applicationToken = applicationToken;
     this.appToken = '';
   }
-ver
+  ver;
   //init method
   init() {
     if (verifyToken(this.applicationToken) === true) {
