@@ -1,24 +1,13 @@
-const path = require('path');
-const commentMethodsPath = path.join(
-  __dirname,
-  '/methods/commentsMethods/index.js'
-);
-const replyMethodsPath = path.join(
-  __dirname,
-  '/methods/repliesMethods/index.js'
-);
-
-const validationFilePath = path.join(__dirname, '/utils/validation.js');
-const comments = require(commentMethodsPath);
-const replies = require(replyMethodsPath);
-const { verifyToken, verifyID } = require(validationFilePath);
+const comments = require('../methods/commentsMethods');
+const replies = require('../methods/repliesMethods');
+const { verifyToken, verifyID } = require('../utils/validation');
 
 class CommentSDK {
   constructor(applicationToken) {
     this.applicationToken = applicationToken;
     this.appToken = '';
   }
-  ver;
+
   //init method
   init() {
     if (verifyToken(this.applicationToken) === true) {
