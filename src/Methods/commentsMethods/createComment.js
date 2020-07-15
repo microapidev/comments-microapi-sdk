@@ -1,12 +1,11 @@
 const rp = require('request-promise');
-require('dotenv').config();
 
 const createComment = async (token, commentObject) => {
   if (!commentObject.userId && !commentObject.content) {
     return new Error('UserId and Comment Content Required');
   } else {
     var options = {
-      uri: `${process.env.BaseUrl}/v1/comments`,
+      uri: `https://comments-microservice.herokuapp.com/v1/comments`,
       headers: {
         'User-Agent': 'Request-Promise',
         Authorization: `Bearer ${token}`,

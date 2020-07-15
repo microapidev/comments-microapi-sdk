@@ -1,12 +1,11 @@
 const rp = require('request-promise');
-require('dotenv').config();
 
 const flagReply = async (token, commentId, replyId, userId) => {
   if (!userId) {
     return `User ID must not be empty!`;
   }
   var options = {
-    uri: `${process.env.BaseUrl}/v1/comments/${commentId}/replies/${replyId}/flag`,
+    uri: `https://comments-microservice.herokuapp.com/v1/comments/${commentId}/replies/${replyId}/flag`,
     headers: {
       'User-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,
