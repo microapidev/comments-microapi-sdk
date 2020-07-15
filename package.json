@@ -26,6 +26,15 @@
   ],
   "author": "Oscar Ekeyekwu (oscarekeyekwu@gmail.com)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microapidev/comments-microapi-sdk.git"
+  },
+  "homepage": "https://github.com/microapidev/comments-microapi-sdk",
+  "bugs": {
+    "url": "https://github.com/microapidev/comments-microapi-sdk/issues"   
+  },
+  "private": false,
   "dependencies": {
     "dotenv": "^8.2.0",
     "request": "^2.88.2",
