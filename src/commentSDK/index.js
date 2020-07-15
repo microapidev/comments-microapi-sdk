@@ -3,33 +3,23 @@ const replies = require('../Methods/repliesMethods');
 const verifyToken = require('../utils/validation');
 
 class CommentSDK {
-  constructor(applicationToken, userId, pageId = '', origin = '') {
+  constructor(applicationToken) {
     this.applicationToken = applicationToken;
-    this.userId = userId;
-    this.pageId = pageId;
-    this.origin = origin;
-    this.params = {};
+    this.appToken = "";
   }
-  /**
-   *
-   * @param {*} initParams
-   * initParams - object containing paramaters for initializing the service
-   */
+
+  //init method
   init() {
     console.log(verifyToken(this.applicationToken));
     if (verifyToken(this.applicationToken) === true) {
-      this.params.appToken = this.applicationToken;
+      this.appToken = this.applicationToken;
     } else {
       return 'Invalid Token Provided';
     }
-
-    this.params.ownerId = this.userId;
-    this.params.refId = this.pageId;
-    this.params.origin = this.origin;
   }
   //comments methods
-  async createComment(content) {
-    return comments.createComment(this.params, content);
+  async createComment(commentObject) {
+    return comments.createComment(this.appToken, commentObject);
   }
   async getAllComments(pageNumber) {
     return comments.getAllComments(this.params, pageNumber);
