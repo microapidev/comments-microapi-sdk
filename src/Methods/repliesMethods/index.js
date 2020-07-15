@@ -1,12 +1,13 @@
-const createReply = require('./createReply');
-const getAllReplies = require('./getAllReplies');
-const getSingleReply = require('./getSingleReply');
-const updateReplyContent = require('./updateReplyContent');
-const deleteSingleReply = require('./deleteSingleReply');
-const flagReply = require('./flagReply');
-const getReplyVotes = require('./getReplyVotes');
-const upvoteSingleReply = require('./upvoteSingleReply');
-const downVoteSingleReply = require('./downVoteSingleReply');
+const path = require('path');
+const createReply = require(path.join(__dirname,'createReply'));
+const getAllReplies = require(path.join(__dirname,'getAllReplies'));
+const getSingleReply = require(path.join(__dirname,'getSingleReply'));
+const updateReplyContent = require(path.join(__dirname,'updateReplyContent'));
+const deleteSingleReply = require(path.join(__dirname,'deleteSingleReply'));
+const flagReply = require(path.join(__dirname,'flagReply'));
+const getReplyVotes = require(path.join(__dirname,'getReplyVotes'));
+const upvoteSingleReply = require(path.join(__dirname,'upvoteSingleReply'));
+const downVoteSingleReply = require(path.join(__dirname,'downVoteSingleReply'));
 
 module.exports = {
   createReply,
