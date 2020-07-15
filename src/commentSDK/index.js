@@ -1,88 +1,139 @@
-const comments = require('../Methods/commentsMethods');
-const replies = require('../Methods/repliesMethods');
-const verifyToken = require('../utils/validation');
+const comments = require('../methods/commentsMethods');
+const replies = require('../methods/repliesMethods');
+const { verifyToken, verifyID } = require('../utils/validation');
 
 class CommentSDK {
-  constructor(applicationToken, userId, pageId = '', origin = '') {
+  constructor(applicationToken) {
     this.applicationToken = applicationToken;
-    this.userId = userId;
-    this.pageId = pageId;
-    this.origin = origin;
-    this.params = {};
+    this.appToken = '';
   }
-  /**
-   *
-   * @param {*} initParams
-   * initParams - object containing paramaters for initializing the service
-   */
+
+  //init method
   init() {
-    console.log(verifyToken(this.applicationToken));
     if (verifyToken(this.applicationToken) === true) {
-      this.params.appToken = this.applicationToken;
+      this.appToken = this.applicationToken;
     } else {
       return 'Invalid Token Provided';
     }
-
-    this.params.ownerId = this.userId;
-    this.params.refId = this.pageId;
-    this.params.origin = this.origin;
   }
   //comments methods
-  async createComment(content) {
-    return comments.createComment(this.params, content);
+  async createComment(commentObject) {
+    return comments.createComment(this.appToken, commentObject);
   }
-  async getAllComments(pageNumber) {
-    return comments.getAllComments(this.params, pageNumber);
+  async getAllComments(pageQuery) {
+    return comments.getAllComments(this.appToken, pageQuery);
   }
   async getSingleComment(commentId) {
-    return comments.getSingleComment(this.params, commentId);
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return comments.getSingleComment(this.appToken, commentId);
   }
-  async updateCommentContent(commentId, content) {
-    return comments.updateCommentContent(this.params, commentId, content);
+  async updateCommentContent(commentId, updateObject) {
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return comments.updateCommentContent(
+      this.appToken,
+      commentId,
+      updateObject
+    );
   }
-  async deleteSingleComment(commentId) {
-    return comments.deleteSingleComment(this.params, commentId);
+  async deleteSingleComment(commentId, userId) {
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return comments.deleteSingleComment(this.appToken, commentId, userId);
   }
-  async flagComment(commentId) {
-    return comments.flagComment(this.params, commentId);
+  async flagComment(commentId, userId) {
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return comments.flagComment(this.appToken, commentId, userId);
   }
   async getCommentVotes(commentId) {
-    return comments.getCommentVotes(this.params, commentId);
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return comments.getCommentVotes(this.appToken, commentId);
   }
-  async upvoteSingleComment(commentId) {
-    return comments.upvoteSingleComment(this.params, commentId);
+  async upvoteSingleComment(commentId, userId) {
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return comments.upvoteSingleComment(this.appToken, commentId, userId);
   }
-  async downVoteSingleComment(commentId) {
-    return comments.downVoteSingleComment(this.params, commentId);
+  async downVoteSingleComment(commentId, userId) {
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return comments.downVoteSingleComment(this.appToken, commentId, userId);
   }
 
   //replies methods
-  async createReply(commentId, content) {
-    return replies.createReply(this.params, commentId, content);
+  async createReply(commentId, replyObject) {
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return replies.createReply(this.appToken, commentId, replyObject);
   }
-  async getAllReplies(commentId, pageNumber) {
-    return replies.getAllReplies(this.params, commentId, pageNumber);
+  async getAllReplies(commentId, pageQuery) {
+    if (!verifyID(commentId)) {
+      return `Invalid Comment ID Provided`;
+    }
+    return replies.getAllReplies(this.appToken, commentId, pageQuery);
   }
   async getSingleReply(commentId, replyId) {
-    return replies.getSingleReply(this.params, commentId, replyId);
+    if (!verifyID(commentId, replyId)) {
+      return `Invalid Comment ID or Reply ID Provided`;
+    }
+    return replies.getSingleReply(this.appToken, commentId, replyId);
   }
-  async updateReplyContent(commentId, replyId, content) {
-    return replies.updateReplyContent(this.params, commentId, replyId, content);
+  async updateReplyContent(commentId, replyId, updateReplyObject) {
+    if (!verifyID(commentId, replyId)) {
+      return `Invalid Comment ID or Reply ID Provided`;
+    }
+    return replies.updateReplyContent(
+      this.appToken,
+      commentId,
+      replyId,
+      updateReplyObject
+    );
   }
   async deleteSingleReply(commentId, replyId) {
-    return replies.deleteSingleReply(this.params, commentId, replyId);
+    if (!verifyID(commentId, replyId)) {
+      return `Invalid Comment ID or Reply ID Provided`;
+    }
+    return replies.deleteSingleReply(this.appToken, commentId, replyId);
   }
-  async flagReply(commentId, replyId) {
-    return replies.flagReply(this.params, commentId, replyId);
+  async flagReply(commentId, replyId, userId) {
+    if (!verifyID(commentId, replyId)) {
+      return `Invalid Comment ID or Reply ID Provided`;
+    }
+    return replies.flagReply(this.appToken, commentId, replyId, userId);
   }
   async getReplyVotes(commentId, replyId) {
-    return replies.getReplyVotes(this.params, commentId, replyId);
+    if (!verifyID(commentId, replyId)) {
+      return `Invalid Comment ID or Reply ID Provided`;
+    }
+    return replies.getReplyVotes(this.appToken, commentId, replyId);
   }
-  async upvoteSingleReply(commentId, replyId) {
-    return replies.upvoteSingleReply(this.params, commentId, replyId);
+  async upvoteSingleReply(commentId, replyId, userId) {
+    if (!verifyID(commentId, replyId)) {
+      return `Invalid Comment ID or Reply ID Provided`;
+    }
+    return replies.upvoteSingleReply(this.appToken, commentId, replyId, userId);
   }
-  async downVoteSingleReply(commentId, replyId) {
-    return replies.downVoteSingleReply(this.params, commentId, replyId);
+  async downVoteSingleReply(commentId, replyId, userId) {
+    if (!verifyID(commentId, replyId)) {
+      return `Invalid Comment ID or Reply ID Provided`;
+    }
+    return replies.downVoteSingleReply(
+      this.appToken,
+      commentId,
+      replyId,
+      userId
+    );
   }
 }
 

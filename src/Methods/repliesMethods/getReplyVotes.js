@@ -1,11 +1,11 @@
 const rp = require('request-promise');
 
-const getReplyVotes = async (params, commentId, replyId) => {
+const getReplyVotes = async (token, commentId, replyId) => {
   var options = {
     uri: `https://comment.microapi.dev/v1/comments/${commentId}/replies/${replyId}/votes`,
     headers: {
       'User-Agent': 'Request-Promise',
-      Authorization: `Bearer ${params.appToken}`,
+      Authorization: `Bearer ${token}`,
     },
     method: 'GET',
     json: true, // Automatically parses the JSON string in the response
