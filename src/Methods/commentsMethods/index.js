@@ -1,4 +1,3 @@
-const path = require('path');
 const createComment = require('./createComment');
 const getAllComments = require('./getAllComments');
 const getSingleComment = require('./getSingleComment');

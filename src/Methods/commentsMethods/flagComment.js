@@ -1,4 +1,4 @@
-const rp = require('./node_modules/request-promise');
+const rp = require('request-promise');
 
 const flagComment = async (token, commentId, userId) => {
   if (!userId) {

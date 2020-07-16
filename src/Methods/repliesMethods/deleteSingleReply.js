@@ -1,7 +1,6 @@
-const rp = require('./node_modules/request-promise');
+const rp = require('request-promise');
 
-const deleteSingleReply = async (token, commentId, replyId, userId) => {
-  const urlBase =  `https://comments-microservice.herokuapp.com`
+const deleteSingleReply = async (token, commentId, replyId, userId) => { 
   if (!userId) {
     return `User ID must not be empty!`;
   }

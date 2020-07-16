@@ -1,4 +1,3 @@
-const path = require('path');
 const createReply = require('./createReply');
 const getAllReplies = require('./getAllReplies');
 const getSingleReply = require('./getSingleReply');
