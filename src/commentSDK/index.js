@@ -128,7 +128,7 @@ class CommentSDK {
     if (!verifyID(commentId, replyId)) {
       return `Invalid Comment ID or Reply ID Provided`;
     }
-    return replies.downVoteSingleReply(
+    return replies.downvoteSingleReply(
       this.appToken,
       commentId,
       replyId,

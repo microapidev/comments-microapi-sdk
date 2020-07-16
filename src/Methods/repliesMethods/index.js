@@ -7,7 +7,7 @@ const deleteSingleReply = require('./deleteSingleReply');
 const flagReply = require('./flagReply');
 const getReplyVotes = require('./getReplyVotes');
 const upvoteSingleReply = require('./upvoteSingleReply');
-const downVoteSingleReply = require('./downVoteSingleReply');
+const downvoteSingleReply = require('./downvoteSingleReply');
 
 module.exports = {
   createReply,
@@ -18,5 +18,5 @@ module.exports = {
   flagReply,
   getReplyVotes,
   upvoteSingleReply,
-  downVoteSingleReply,
+  downvoteSingleReply,
 };
