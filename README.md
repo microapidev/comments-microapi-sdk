@@ -25,7 +25,7 @@ v2.0.5
 - Run `npm install comments-microapi-sdk`
 - Use the application token to create an instance of the SDK
 - Initialize SDK via `sdkInstance.init()`
-- Flex your muscles with the SDK Functions at [Documentation]
+- Flex your muscles with the SDK Functions at [Documentation](https://github.com/microapidev/comments-microapi-sdk/blob/develop/src/commentSDK/README.md)
 
 ```
 //require package from npm
