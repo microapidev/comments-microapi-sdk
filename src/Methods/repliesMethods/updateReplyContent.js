@@ -9,7 +9,7 @@ const updateReplyContent = async (token, commentId, replyId, updateObject) => {
     },
     method: 'PATCH',
     body: {
-      ownerId: updateObject.userId,
+      ownerId: updateObject.ownerId,
       content: updateObject.content,
     },
     json: true, // Automatically parses the JSON string in the response

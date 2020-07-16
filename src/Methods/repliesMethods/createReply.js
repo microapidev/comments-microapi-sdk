@@ -1,18 +1,18 @@
 const rp = require('request-promise');
 
 const createReply = async (token, commentId, replyObject) => {
-  if (!replyObject.userId && !replyObject.content) {
-    return 'UserId and Comment Content Required';
+  if (!replyObject.ownerId && !replyObject.content) {
+    return 'ownerId and Comment Content Required';
   }
   var options = {
     uri: `https://comments-microservice.herokuapp.com/v1/comments/${commentId}/replies`,
     headers: {
-      'User-Agent': 'Request-Promise',
+      'owner-Agent': 'Request-Promise',
       Authorization: `Bearer ${token}`,
     },
     method: 'POST',
     body: {
-      ownerId: replyObject.userId,
+      ownerId: replyObject.ownerId,
       content: replyObject.content,
     },
     json: true, // Automatically parses the JSON string in the response

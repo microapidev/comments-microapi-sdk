@@ -1,8 +1,8 @@
 const rp = require('request-promise');
 
-const downvoteSingleComment = async (token, commentId, userId) => {
-  if (!userId) {
-    return `User ID must not be empty!`;
+const downvoteSingleComment = async (token, commentId, ownerId) => {
+  if (!ownerId) {
+    return `Owner ID must not be empty!`;
   }
   var options = {
     uri: `https://comments-microservice.herokuapp.com/v1/comments/${commentId}/votes/downvote`,
@@ -12,7 +12,7 @@ const downvoteSingleComment = async (token, commentId, userId) => {
     },
     method: 'PATCH',
     body: {
-      ownerId: userId,
+      ownerId: ownerId,
     },
     json: true, // Automatically parses the JSON string in the response
   };

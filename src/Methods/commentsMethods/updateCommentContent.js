@@ -1,8 +1,8 @@
 const rp = require('request-promise');
 
 const updateCommentContent = async (token, commentId, updateObject) => {
-  if (!updateObject.userId && !updateObject.content) {
-    return 'UserId and Comment Update Content must no be empty';
+  if (!updateObject.ownerId && !updateObject.content) {
+    return 'ownerId and Comment Update Content must no be empty';
   }
   var options = {
     uri: `https://comments-microservice.herokuapp.com/v1/comments/${commentId}`,
@@ -12,7 +12,7 @@ const updateCommentContent = async (token, commentId, updateObject) => {
     },
     method: 'PATCH',
     body: {
-      ownerId: updateObject.userId,
+      ownerId: updateObject.ownerId,
       content: updateObject.content,
     },
     json: true, // Automatically parses the JSON string in the response

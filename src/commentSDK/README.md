@@ -86,7 +86,7 @@ Note: All methods returns Promises
 ### Update Reply Content
 
     - Parameter: commentId,replyId, updateObject (required) [updateObject = {ownerId, content}]
-    - method : updateReplycontent(commentId,replyId,ownerId);
+    - method : updateReplycontent(commentId,replyId,updateObject);
 
 ### Flag Single Reply
 

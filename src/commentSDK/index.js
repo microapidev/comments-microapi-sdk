@@ -39,17 +39,17 @@ class CommentSDK {
       updateObject
     );
   }
-  async deleteSingleComment(commentId, userId) {
+  async deleteSingleComment(commentId, ownerId) {
     if (!verifyID(commentId)) {
       return `Invalid Comment ID Provided`;
     }
-    return comments.deleteSingleComment(this.appToken, commentId, userId);
+    return comments.deleteSingleComment(this.appToken, commentId, ownerId);
   }
-  async flagComment(commentId, userId) {
+  async flagComment(commentId, ownerId) {
     if (!verifyID(commentId)) {
       return `Invalid Comment ID Provided`;
     }
-    return comments.flagComment(this.appToken, commentId, userId);
+    return comments.flagComment(this.appToken, commentId, ownerId);
   }
   async getCommentVotes(commentId) {
     if (!verifyID(commentId)) {
@@ -57,17 +57,17 @@ class CommentSDK {
     }
     return comments.getCommentVotes(this.appToken, commentId);
   }
-  async upvoteSingleComment(commentId, userId) {
+  async upvoteSingleComment(commentId, ownerId) {
     if (!verifyID(commentId)) {
       return `Invalid Comment ID Provided`;
     }
-    return comments.upvoteSingleComment(this.appToken, commentId, userId);
+    return comments.upvoteSingleComment(this.appToken, commentId, ownerId);
   }
-  async downvoteSingleComment(commentId, userId) {
+  async downvoteSingleComment(commentId, ownerId) {
     if (!verifyID(commentId)) {
       return `Invalid Comment ID Provided`;
     }
-    return comments.downvoteSingleComment(this.appToken, commentId, userId);
+    return comments.downvoteSingleComment(this.appToken, commentId, ownerId);
   }
 
   //replies methods
@@ -106,11 +106,11 @@ class CommentSDK {
     }
     return replies.deleteSingleReply(this.appToken, commentId, replyId);
   }
-  async flagReply(commentId, replyId, userId) {
+  async flagReply(commentId, replyId, ownerId) {
     if (!verifyID(commentId, replyId)) {
       return `Invalid Comment ID or Reply ID Provided`;
     }
-    return replies.flagReply(this.appToken, commentId, replyId, userId);
+    return replies.flagReply(this.appToken, commentId, replyId, ownerId);
   }
   async getReplyVotes(commentId, replyId) {
     if (!verifyID(commentId, replyId)) {
@@ -118,13 +118,13 @@ class CommentSDK {
     }
     return replies.getReplyVotes(this.appToken, commentId, replyId);
   }
-  async upvoteSingleReply(commentId, replyId, userId) {
+  async upvoteSingleReply(commentId, replyId, ownerId) {
     if (!verifyID(commentId, replyId)) {
       return `Invalid Comment ID or Reply ID Provided`;
     }
-    return replies.upvoteSingleReply(this.appToken, commentId, replyId, userId);
+    return replies.upvoteSingleReply(this.appToken, commentId, replyId, ownerId);
   }
-  async downvoteSingleReply(commentId, replyId, userId) {
+  async downvoteSingleReply(commentId, replyId, ownerId) {
     if (!verifyID(commentId, replyId)) {
       return `Invalid Comment ID or Reply ID Provided`;
     }
@@ -132,7 +132,7 @@ class CommentSDK {
       this.appToken,
       commentId,
       replyId,
-      userId
+      ownerId
     );
   }
 }

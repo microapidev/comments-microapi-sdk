@@ -1,8 +1,8 @@
 const rp = require('request-promise');
 
 const createComment = async (token, commentObject) => {
-  if (!commentObject.userId && !commentObject.content) {
-    return new Error('UserId and Comment Content Required');
+  if (!commentObject.ownerId && !commentObject.content) {
+    return new Error('Owner ID and Comment Content Required');
   } else {
     var options = {
       uri: `https://comments-microservice.herokuapp.com/v1/comments`,
@@ -12,7 +12,7 @@ const createComment = async (token, commentObject) => {
       },
       method: 'POST',
       body: {
-        ownerId: commentObject.userId,
+        ownerId: commentObject.ownerId,
         content: commentObject.content,
         refId: commentObject.refId,
         origin: commentObject.origin,
