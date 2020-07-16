@@ -37,7 +37,7 @@ Note: All methods returns Promises
 ### Update Comment Content
 
     - Parameter: commentId, updateObject (required) [updateObject = {ownerId, content}]
-    - method : flagComment(commentId,ownerId);
+    - method : updateCommentContent(commentId,updateObject);
 
 ### Flag Single Comment
 
