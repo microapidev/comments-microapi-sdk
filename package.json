@@ -2,7 +2,7 @@
   "name": "comments-microapi-sdk",
   "version": "2.0.8",
   "description": "This is an SDK for the Comments Microapi at Microapi.dev Organization ",
-  "main": "src/commentSDK/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --verbose",
     "test:debug": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose",
