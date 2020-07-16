@@ -1,4 +1,4 @@
-# Get Started with the SDK Functions (Quick Documentations)
+# Get Started with the SDK Methods (Quick Documentations)
 
 ### Setup
 
