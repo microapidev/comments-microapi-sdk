@@ -1,17 +1,6 @@
-const path = require('path');
-const commentMethodsPath = path.join(
-  process.cwd(),
-  '/src/methods/commentsMethods'
-);
-const replyMethodsPath = path.join(
-  process.cwd(),
-  '/src/methods/repliesMethods'
-);
-
-const validationFilePath = path.join(process.cwd(), '/src/utils/validation');
-const comments = require(commentMethodsPath);
-const replies = require(replyMethodsPath);
-const { verifyToken, verifyID } = require(validationFilePath);
+const comments = require('../methods/commentsMethods');
+const replies = require('../methods/repliesMethods');
+const { verifyToken, verifyID } = require('../utils/validation');
 
 class CommentSDK {
   constructor(applicationToken) {
@@ -74,7 +63,7 @@ class CommentSDK {
     }
     return comments.upvoteSingleComment(this.appToken, commentId, userId);
   }
-  async downVoteSingleComment(commentId, userId) {
+  async downvoteSingleComment(commentId, userId) {
     if (!verifyID(commentId)) {
       return `Invalid Comment ID Provided`;
     }
@@ -135,7 +124,7 @@ class CommentSDK {
     }
     return replies.upvoteSingleReply(this.appToken, commentId, replyId, userId);
   }
-  async downVoteSingleReply(commentId, replyId, userId) {
+  async downvoteSingleReply(commentId, replyId, userId) {
     if (!verifyID(commentId, replyId)) {
       return `Invalid Comment ID or Reply ID Provided`;
     }

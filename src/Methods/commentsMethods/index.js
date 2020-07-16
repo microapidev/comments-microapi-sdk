@@ -1,13 +1,13 @@
 const path = require('path');
-const createComment = require(path.join(__dirname, 'createComment'));
-const getAllComments = require(path.join(__dirname, 'getAllComments'));
-const getSingleComment = require(path.join(__dirname, 'getSingleComment'));
-const updateCommentContent = require(path.join(__dirname, 'updateCommentContent'));
-const deleteSingleComment = require(path.join(__dirname, 'deleteSingleComment'));
-const flagComment = require(path.join(__dirname, 'flagComment'));
-const getCommentVotes = require(path.join(__dirname, 'getCommentVotes'));
-const upvoteSingleComment = require(path.join(__dirname, 'upvoteSingleComment'));
-const downvoteSingleComment = require(path.join(__dirname, 'downvoteSingleCommnent'));
+const createComment = require('./createComment');
+const getAllComments = require('./getAllComments');
+const getSingleComment = require('./getSingleComment');
+const updateCommentContent = require('./updateCommentContent');
+const deleteSingleComment = require('./deleteSingleComment');
+const flagComment = require('./flagComment');
+const getCommentVotes = require('./getCommentVotes');
+const upvoteSingleComment = require('./upvoteSingleComment');
+const downvoteSingleComment = require('./downvoteSingleCommnent');
 
 module.exports = {
   createComment,

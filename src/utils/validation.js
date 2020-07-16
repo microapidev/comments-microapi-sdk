@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 const verifyToken = (token) => {
   /* eslint-disable */
   const jwtPattern = /^[A-Za-z0-9-_=]+.[A-Za-z0-9-_=]+.?[A-Za-z0-9-_.+/=]*$/; // eslint-disable-line no-use-before-define
@@ -12,10 +10,10 @@ const verifyToken = (token) => {
   }
 };
 
-const verifyID = async (...mongoId) => {
+const verifyID = (...mongoId) => {
   let verification;
-  await mongoId.forEach((id) => {
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+ mongoId.forEach((id) => {
+    if (id.length !== 24) {
       verification = false;
     } else {
       verification = true;
