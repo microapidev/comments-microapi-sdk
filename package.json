@@ -1,6 +1,6 @@
 {
   "name": "comments-microapi-sdk",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "This is an SDK for the Comments Microapi at Microapi.dev Organization ",
   "main": "index.js",
   "scripts": {
