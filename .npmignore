@@ -3,3 +3,4 @@ __test__
 jest.config.jest
 babel.config.js
 .eslintrc.js
+jest.config.js
