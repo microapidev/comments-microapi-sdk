@@ -124,7 +124,7 @@ class CommentSDK {
     }
     return replies.upvoteSingleReply(this.appToken, commentId, replyId, userId);
   }
-  async downVoteSingleReply(commentId, replyId, userId) {
+  async downvoteSingleReply(commentId, replyId, userId) {
     if (!verifyID(commentId, replyId)) {
       return `Invalid Comment ID or Reply ID Provided`;
     }
