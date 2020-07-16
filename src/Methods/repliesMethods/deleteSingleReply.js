@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const rp = require('./node_modules/request-promise');
 
 const deleteSingleReply = async (token, commentId, replyId, userId) => {
   const urlBase =  `https://comments-microservice.herokuapp.com`

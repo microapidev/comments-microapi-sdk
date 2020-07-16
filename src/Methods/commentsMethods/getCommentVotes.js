@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const rp = require('./node_modules/request-promise');
 
 const getCommentVotes = async (token, commentId) => {
   var options = {

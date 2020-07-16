@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const rp = require('./node_modules/request-promise');
 
 const getAllComments = async (token, pageQuery) => {
   var options = {

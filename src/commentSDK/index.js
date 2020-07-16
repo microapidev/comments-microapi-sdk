@@ -10,7 +10,7 @@ class CommentSDK {
 
   //init method
   init() {
-    if (verifyToken(this.applicationToken) === true) {
+    if (verifyToken(this.applicationToken)) {
       this.appToken = this.applicationToken;
     } else {
       return 'Invalid Token Provided';
@@ -67,7 +67,7 @@ class CommentSDK {
     if (!verifyID(commentId)) {
       return `Invalid Comment ID Provided`;
     }
-    return comments.downVoteSingleComment(this.appToken, commentId, userId);
+    return comments.downvoteSingleComment(this.appToken, commentId, userId);
   }
 
   //replies methods
